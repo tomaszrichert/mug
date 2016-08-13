@@ -2,10 +2,7 @@ package com.neoteric.mug.cars;
 
 import com.neoteric.mug.cars.db.CarsDAO;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,13 @@ public class CarsAPI {
     @RequestMapping(method = RequestMethod.POST)
     public Car create(@RequestBody Car car) {
         return carsDAO.save(car);
+    }
+
+    /* Query methods */
+
+    @RequestMapping(value = "/{brand}", method = RequestMethod.GET)
+    public List<Car> getByBrand(@PathVariable("brand") String brand) {
+        return carsDAO.findByCarBrand(brand);
     }
 
 }
