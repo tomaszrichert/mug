@@ -30,4 +30,11 @@ public class CarsAPI {
         return carsDAO.findByCarBrand(brand);
     }
 
+    /* Custom repository */
+
+    @RequestMapping(value = "/{brand}/latest", method = RequestMethod.GET)
+    public Car latest(@PathVariable("brand") String brand) {
+        return carsDAO.latestWithBrand(brand);
+    }
+
 }

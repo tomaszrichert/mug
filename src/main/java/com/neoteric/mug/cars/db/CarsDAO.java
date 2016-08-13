@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.concurrent.Future;
 import java.util.stream.Stream;
 
-public interface CarsDAO extends MongoRepository<Car, String> {
+public interface CarsDAO extends MongoRepository<Car, String>, CustomCarsDAO {
 
     Optional<Car> findOneByBrand(String brand);
 
