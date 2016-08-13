@@ -15,7 +15,7 @@ public class CarsAPI {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Car> get() {
-        return carsDAO.findAll();
+        return carsDAO.findWithFilters();
     }
 
     @RequestMapping(method = RequestMethod.POST)
